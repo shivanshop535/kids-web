@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disney Channel</title>
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #181818;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      color: #ff8c00;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    }
+
+    .video-container {
+      margin: 20px;
+      width: 90%;
+      max-width: 800px;
+    }
+
+    video {
+      width: 100%;
+      display: block;
+    }
+
+    .credits {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #a0a0a0;
+    }
+
+    .telegram-button {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      padding: 12px 25px;
+      background-color: #0088cc;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .telegram-button:hover {
+      background-color: #007bb5;
+      transform: translateY(-2px);
+      box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .telegram-button img {
+      margin-right: 10px;
+      width: 24px;
+      height: 24px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Disney Channel</h1>
+  <div class="video-container">
+    <video id="player" playsinline controls></video>
+  </div>
+  <a class="telegram-button" href="https://t.me/JUSTM3U535" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo">
+    Join Telegram
+  </a>
+  <div class="credits">Made by - Shivansh</div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const video = document.getElementById('player');
+      const videoSrc = "http://180.188.227.250:8095/stream/t/114/stream_0.m3u8?uid=2183433854&u=admin&p=e962118eaeb88ac4a2b5cc2c7d99877207f6303b4169ef010c744b5c12898ef4";
+
+      if (Hls.isSupported()) {
+        const hls = new Hls();
+
+        hls.loadSource(videoSrc);
+        hls.attachMedia(video);
+
+        // Initialize Plyr after attaching HLS to the video
+        const player = new Plyr(video);
+
+        hls.on(Hls.Events.AUDIO_TRACKS_UPDATED, () => {
+          const audioTracks = hls.audioTracks;
+
+          // Check and handle multiple audio tracks
+          if (audioTracks.length > 0) {
+            const audioSelector = document.createElement('select');
+            audioSelector.style.margin = '10px';
+            audioSelector.style.padding = '5px';
+            audioSelector.style.fontSize = '16px';
+            document.body.insertBefore(audioSelector, video);
+
+            audioTracks.forEach((track, index) => {
+              const option = document.createElement('option');
+              option.value = index;
+              option.textContent = track.name || `Track ${index + 1}`;
+              audioSelector.appendChild(option);
+            });
+
+            audioSelector.addEventListener('change', () => {
+              const selectedIndex = parseInt(audioSelector.value, 10);
+              console.log(`Switching to audio track ${selectedIndex}`);
+              hls.audioTrack = selectedIndex;
+            });
+          }
+        });
+
+        hls.on(Hls.Events.ERROR, (event, data) => {
+          console.error(`HLS.js Error: ${data.type}`, data);
+          if (data.fatal) {
+            switch (data.type) {
+              case Hls.ErrorTypes.NETWORK_ERROR:
+                console.warn("Network error occurred. Retrying...");
+                hls.startLoad();
+                break;
+              case Hls.ErrorTypes.MEDIA_ERROR:
+                console.warn("Media error occurred. Attempting recovery...");
+                hls.recoverMediaError();
+                break;
+              default:
+                console.error("Unrecoverable error. Reloading...");
+                hls.destroy();
+                window.location.reload();
+                break;
+            }
+          }
+        });
+      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = videoSrc;
+        video.addEventListener('loadedmetadata', () => {
+          new Plyr(video);
+        });
+      } else {
+        console.error("Your browser does not support HLS or M3U8 playback.");
+        alert("Your browser does not support HLS playback. Please try a different browser.");
+      }
+    });
+  </script>
+</body>
+</html>
