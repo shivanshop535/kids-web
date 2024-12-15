@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just M3u Kids Live</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212; /* Dark background */
+            color: #ffffff; /* White text */
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #1f1f1f; /* Slightly lighter dark for contrast */
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+        .channels-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            justify-items: center;
+        }
+        .channel {
+            width: 200px;
+            text-align: center;
+            background-color: #1f1f1f; /* Darker card background */
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .channel:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+        }
+        .channel a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        .channel-logo {
+            width: 100px;
+            height: 100px;
+            margin: 15px auto;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .channel-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .channel-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0 15px;
+        }
+        .join-telegram {
+            display: flex;
+            justify-content: center;
+            margin: 30px;
+        }
+        .telegram-button {
+            display: flex;
+            align-items: center;
+            padding: 12px 25px;
+            background-color: #0088cc;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .telegram-button img {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+        }
+        .telegram-button:hover {
+            background-color: #0077b3;
+            transform: scale(1.05);
+        }
+        .footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            color: #bbbbbb;
+            background-color: #1f1f1f;
+        }
+    </style>
+</head>
+<body>
+    <div class="header"> Kids Live- By Shivansh</div>
+    <div class="channels-container">
+        <div class="channel">
+            <a href="disney.html">
+                <div class="channel-logo">
+                    <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-1356-j5tdnwmw-v1/imageContent-1356-j5tdnwmw-m1.png" alt="Disney Logo">
+                </div>
+                <div class="channel-name">Disney</div>
+            </a>
+        </div>
+        <div class="channel">
+            <a href="sony-yay.html">
+                <div class="channel-logo">
+                    <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-132-j5fpedbs-v4/imageContent-132-j5fpedbs-m6.png" alt="Sony Yay Logo">
+                </div>
+                <div class="channel-name">Sony Yay</div>
+            </a>
+        </div>
+        <div class="channel">
+            <a href="hungama.html">
+                <div class="channel-logo">
+                    <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11479-j9jr9a8o-v1/imageContent-11479-j9jr9a8o-m1.png" alt="Hungama Logo">
+                </div>
+                <div class="channel-name">Hungama</div>
+            </a>
+        </div>
+        <div class="channel">
+            <a href="super-hungama.html">
+                <div class="channel-logo">
+                    <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-35365-jr3xz4uo-v5/imageContent-35365-jr3xz4uo-m6.png" alt="Super Hungama Logo">
+                </div>
+                <div class="channel-name">Super Hungama</div>
+            </a>
+        </div>
+        <div class="channel">
+            <a href="discovery-kids.html">
+                <div class="channel-logo">
+                    <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-24724-jgvwokqw-v1/imageContent-24724-jgvwokqw-m1.png" alt="Discovery Kids Logo">
+                </div>
+                <div class="channel-name">Discovery Kids</div>
+            </a>
+        </div>
+        <div class="channel">
+            <a href="gubbare.html">
+                <div class="channel-logo">
+                    <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-57985-khvdchrs-v2/imageContent-57985-khvdchrs-m2.png" alt="Gubbare Logo">
+                </div>
+                <div class="channel-name">Gubbare</div>
+            </a>
+        </div>
+        <div class="channel">
+            <a href="sonic.html">
+                <div class="channel-logo">
+                    <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-8018-j7a7n1a8-v1/imageContent-8018-j7a7n1a8-m1.png" alt="Sonic Logo">
+                </div>
+                <div class="channel-name">Sonic</div>
+            </a>
+        </div>
+        <div class="channel">
+            <a href="cartoon-network.html">
+                <div class="channel-logo">
+                    <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11161-j99h67u8-v1/imageContent-11161-j99h67u8-m1.png" alt="Cartoon Network Logo">
+                </div>
+                <div class="channel-name">Cartoon Network</div>
+            </a>
+        </div>
+        <div class="channel">
+            <a href="disney-junior.html">
+                <div class="channel-logo">
+                    <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-35368-jr3xz7xs-v1/imageContent-35368-jr3xz7xs-m1.png" alt="Disney Junior Logo">
+                </div>
+                <div class="channel-name">Disney Junior</div>
+            </a>
+        </div>
+        <div class="channel">
+            <a href="pogo.html">
+                <div class="channel-logo">
+                    <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-2694-j638bugw-v1/imageContent-2694-j638bugw-m1.png" alt="Pogo Logo">
+                </div>
+                <div class="channel-name">Pogo</div>
+            </a>
+        </div>
+    </div>
+    <div class="join-telegram">
+        <a href="https://t.me/unknownXplaylists" class="telegram-button">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo">
+            Join Telegram
+        </a>
+    </div>
+    <div class="footer">Created by Shivansh</div>
+</body>
+</html>
